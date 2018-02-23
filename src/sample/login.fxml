@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #b9eeff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #b9eeff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <Pane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #85bcff;">
          <children>
@@ -32,12 +32,12 @@
             </Label>
          </children>
       </Pane>
-      <JFXTextField focusColor="#e86c0d" labelFloat="true" layoutX="389.0" layoutY="75.0" prefHeight="25.0" prefWidth="171.0" promptText="username" unFocusColor="#508ccc">
+      <JFXTextField fx:id="username" focusColor="#e86c0d" labelFloat="true" layoutX="389.0" layoutY="75.0" prefHeight="25.0" prefWidth="171.0" promptText="username" unFocusColor="#508ccc">
          <font>
             <Font name="System Italic" size="13.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField focusColor="#e86c0d" labelFloat="true" layoutX="389.0" layoutY="124.0" prefHeight="25.0" prefWidth="171.0" promptText="password" unFocusColor="#508ccc">
+      <JFXPasswordField fx:id="password" focusColor="#e86c0d" labelFloat="true" layoutX="389.0" layoutY="124.0" prefHeight="25.0" prefWidth="171.0" promptText="password" unFocusColor="#508ccc">
          <font>
             <Font name="System Italic" size="13.0" />
          </font>
@@ -52,17 +52,17 @@
             <Image url="@../image/keylock.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="476.0" layoutY="164.0" prefHeight="29.0" prefWidth="84.0" style="-fx-background-color: #85bcff;" text="Login">
+      <JFXButton fx:id="btnLogin" layoutX="476.0" layoutY="164.0" prefHeight="29.0" prefWidth="84.0" style="-fx-background-color: #85bcff;" text="Login">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <Label layoutX="321.0" layoutY="42.0" prefHeight="25.0" prefWidth="271.0" />
+      <Label fx:id="loginStatus" layoutX="321.0" layoutY="42.0" prefHeight="25.0" prefWidth="271.0" />
       <Label layoutX="307.0" layoutY="369.0" text="DB Status:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="370.0" layoutY="365.0" prefHeight="25.0" prefWidth="213.0" textFill="#bc0303" />
+      <Label fx:id="dbStatus" layoutX="370.0" layoutY="365.0" prefHeight="25.0" prefWidth="213.0" textFill="#bc0303" />
    </children>
 </AnchorPane>
