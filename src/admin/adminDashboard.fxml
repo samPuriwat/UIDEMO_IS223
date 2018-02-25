@@ -90,7 +90,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="BtnEdit" layoutX="222.0" layoutY="404.0" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #edd520;" text="Edit">
+                        <JFXButton fx:id="BtnEdit" layoutX="222.0" layoutY="404.0" onAction="#editStudent" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: #edd520;" text="Edit">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
