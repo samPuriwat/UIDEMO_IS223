@@ -16,6 +16,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javax.swing.*;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -168,5 +169,34 @@ public class adminController implements Initializable {
         this.txtDOB.setValue(null);
 
     }//clearForm
+    @FXML
+    private void deleteStudent(ActionEvent event){
+        //get data from TableView
+        StudentData std = studentTable.getSelectionModel().getSelectedItem();
+        //DialogMessage
+        JOptionPane.showConfirmDialog(null,
+                "Do you want to delete student name: "
+                        + std.getFirstName() + " " + std.getLastName());
+        //delete
+        if (std != null) {
+            String sqlDelete = "delete from student where ID = ?";
+            try {
+                Connection conn = dbConnection.getConnection();
+                PreparedStatement pr = conn.prepareStatement(sqlDelete);
+                pr.setString(1, std.getId());
+                pr.executeUpdate();
+                pr.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.exit(1);
+        }
+        loadStudentData(new ActionEvent());
+
+    }//deleteStudent
+
+
+
 
 }//class
