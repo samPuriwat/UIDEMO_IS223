@@ -1,6 +1,8 @@
 package admin;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTextField;
 import dbUtil.dbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -47,6 +50,21 @@ public class adminController implements Initializable {
 
     @FXML
     private TextField searchTxt;
+
+    @FXML
+    private JFXTextField txtID;
+
+    @FXML
+    private JFXTextField txtFirstName;
+
+    @FXML
+    private JFXTextField txtLastName;
+
+    @FXML
+    private JFXTextField txtEmail;
+
+    @FXML
+    private JFXDatePicker txtDOB;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -115,13 +133,40 @@ public class adminController implements Initializable {
 
         });
 
-
-
-
-
-
-
-
     }//loadStudentData
+
+    @FXML
+    private void addStudent(ActionEvent event){
+        String sqlInsert = "" +
+                "insert into student(ID,firstName," +
+                "lastName,email,DOB) values(?,?,?,?,?)";
+
+        try {
+            Connection conn = dbConnection.getConnection();
+            PreparedStatement pr = conn.prepareStatement(sqlInsert);
+            pr.setString(1,this.txtID.getText());
+            pr.setString(2,this.txtFirstName.getText());
+            pr.setString(3,this.txtLastName.getText());
+            pr.setString(4,this.txtEmail.getText());
+            pr.setString(5,this.txtDOB.getEditor().getText());
+
+            pr.execute();
+            pr.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        loadStudentData(new ActionEvent());
+    }//addStudent
+    @FXML
+    private void clearForm(ActionEvent event){
+        this.txtID.setText("");
+        this.txtFirstName.setText("");
+        this.txtLastName.setText("");
+        this.txtEmail.setText("");
+        this.txtDOB.setValue(null);
+
+    }//clearForm
 
 }//class
