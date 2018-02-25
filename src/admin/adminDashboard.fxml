@@ -85,7 +85,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="btnSave" layoutX="13.0" layoutY="317.0" prefHeight="25.0" prefWidth="199.0" style="-fx-background-color: #edd520;" text="Save">
+                        <JFXButton fx:id="btnSave" layoutX="13.0" layoutY="317.0" onAction="#saveStudent" prefHeight="25.0" prefWidth="199.0" style="-fx-background-color: #edd520;" text="Save">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
